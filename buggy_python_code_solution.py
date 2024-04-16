@@ -20,7 +20,7 @@ class Person(object):
 
 
 def print_nametag(format_string, person):
-    print(format_string.format(person=person))
+    print(format_string.format(person={person}))
 
 
 def fetch_website(urllib_version, url):
@@ -41,7 +41,7 @@ def fetch_website(urllib_version, url):
 
 def load_yaml(filename):
     stream = open(filename)
-    deserialized_data = yaml.load(stream, Loader=yaml.Loader) #deserializing data
+    deserialized_data = yaml.load(stream, Loader=yaml.SafeLoader) #deserializing data
     return deserialized_data
     
 def authenticate(password):
